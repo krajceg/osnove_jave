@@ -7,13 +7,18 @@ public class Auto {
 	public int brojVrata;
 	public double potrosnja;
 	public int brzina;
-//	Dopuna 1:
-	public int ogranicenje;
-//	Dopuna 2:
+
+
 	public int godinaProizvodnje;
 	public int mesecRegistracije;
-	public int mesec;
 	public int kubikaza;
+
+	public String brojRegistracije;
+	public boolean klima;
+	
+	public int maxBrzina;
+	public int kapacitetRezervoar;
+	public int trenutnoURezervoaru;
 	
 	
 	public void stampa() {
@@ -23,29 +28,10 @@ public class Auto {
 		System.out.println("Sa potrosnjom od " + this.potrosnja + "l na 100km");
 		System.out.println(this.brzina + "km/h je trenutna brzina");
 		System.out.println();
-		if (prekoracenje() == true) {
-			System.out.println("Prekoracili ste brzinu");
-			System.out.println("Kazna je: " + kaznaMetoda() + " dinara");
-		}
-		System.out.println();
-		if (this.godinaProizvodnje < 1950) {
-			System.out.println("Auto je oldtimer");
-		}
-		else {
-			System.out.println("Auto nije oldtimer");
-		}
-		System.out.println();
-		if (registracijaMetoda() == true) {
-			System.out.println("Auto je registovan");
-		}
-		else if (registracijaMetoda() == false) {
-			System.out.println("Registracije je istekla");
-		}
-		System.out.println("Cena registracije je: " + cenaRegistracijeMetoda());
 	}
 	
-	public boolean prekoracenje() {
-		if (this.brzina > this.ogranicenje) {
+	public boolean prekoracenje(int ogranicenje) {
+		if (this.brzina > ogranicenje) {
 			return true;
 		}
 		else {
@@ -53,9 +39,9 @@ public class Auto {
 		}
 	}
 	
-	public int kaznaMetoda () {
-		if (prekoracenje() == true) {
-			return ((this.brzina - this.ogranicenje) * 1000);
+	public int kaznaMetoda (int k) {
+		if (prekoracenje(k) == true) {
+			return ((this.brzina - k) * 1000);
 		
 		}
 		else {
@@ -66,18 +52,16 @@ public class Auto {
 	public boolean oldTajmerMetoda() {
 		
 		if (this.godinaProizvodnje < 1950) {
-			boolean da = true;
-			return da;
+			return true;
 		}
 		else {
-			boolean da = false;
-			return da;
+			return false;
 		}
 
 	}
 	
-	public boolean registracijaMetoda() {
-		if (this.mesecRegistracije > this.mesec) {
+	public boolean registracijaMetoda(int mesec) {
+		if (this.mesecRegistracije > mesec) {
 			return true;
 		}
 		else {
@@ -96,4 +80,50 @@ public class Auto {
 			return cena;
 		}
 	}
+
+	public void dodajGas() {
+		this.brzina = this.brzina + 10;
+		if (this.brzina > this.maxBrzina) {
+			this.brzina = this.maxBrzina;
+		}
+	}
+	
+	public void smanjiGas() {
+		this.brzina = this.brzina -10;
+		if (this.brzina < 0) {
+			this.brzina = 0;
+		}
+	}
+
+	public double potrosnjaMetoda () {
+		double faktor = 1;
+		if (klima == true) {
+			faktor = 1.2;
+		}
+		return (this.brzina / 100.0 * potrosnja) * faktor;
+	}
+
+	public void stampajTablu () {
+		int brojJedinica = this.brzina * 100 / this.maxBrzina;
+		
+		for (int i = 0; i < 100; i++) {
+			if (i < brojJedinica) {
+				System.out.print("|");
+			}
+			else {
+				System.out.print(".");
+			}
+		}
+		System.out.println(this.brzina + "/" + this.maxBrzina + "km/h");
+	}
+
+	public double nataci (int litri) {
+		if (litri + this.trenutnoURezervoaru > this.kapacitetRezervoar) {
+			return (this.kapacitetRezervoar - this.trenutnoURezervoaru) * 100;
+		}
+		else {
+			return litri * 100;
+		}
+	}
+
 }

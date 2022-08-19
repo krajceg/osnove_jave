@@ -13,39 +13,57 @@ public class Auto_Main {
 	public static void podaci() {
 		
 		Auto a = new Auto();
-		Scanner s = new Scanner(System.in);
 		
-		System.out.print("Uneti ime i prezime: ");
-		a.punoIme = s.nextLine();
+		a.punoIme = "Svetolik Kljajic";
+		a.marka = "BMW";
+		a.brojVrata = 5;
+		a.potrosnja = 10;
+		a.brzina = 100;
 		
-		System.out.print("Uneti marku automobila: ");
-		a.marka = s.nextLine();
+		a.godinaProizvodnje = 1935;
+		a.mesecRegistracije = 3;
+		a.kubikaza = 2200;
 		
-		System.out.print("Uneti broj vrata: ");
-		a.brojVrata = s.nextInt();
+		a.brojRegistracije = "KS12345";
+		a.klima = true;
 		
-		System.out.print("Uneti potrosnju: ");
-		a.potrosnja = s.nextDouble();
-		
-		System.out.print("Uneti trenutnu brzinu: ");
-		a.brzina = s.nextInt();
-		
-		System.out.print("Uneti ogranicenje: ");
-		a.ogranicenje = s.nextInt();
-		
-		System.out.print("Uneti godinu proizvodnje: ");
-		a.godinaProizvodnje = s.nextInt();
-		
-		System.out.print("Uneti mesec do kad je registrovan auto (broj): ");
-		a.mesecRegistracije = s.nextInt();
-		
-		System.out.print("Uneti trenutni mesec (broj): ");
-		a.mesec = s.nextInt();
-		
-		System.out.print("Uneti kubikazu: ");
-		a.kubikaza = s.nextInt();
+		a.maxBrzina = 240;
+		a.kapacitetRezervoar = 50;
+		a.trenutnoURezervoaru = 20;
 		
 		a.stampa();
+		
+		if (a.prekoracenje(120) == true) {
+			System.out.println("Prekoracili ste brzinu");
+			System.out.println("Kazna je: " + a.kaznaMetoda(120) + " dinara");
+		}
+		System.out.println();
+		if (a.godinaProizvodnje < 1950) {
+			System.out.println("Auto je oldtimer");
+		}
+		else {
+			System.out.println("Auto nije oldtimer");
+		}
+		System.out.println();
+		if (a.registracijaMetoda(8) == true) {
+			System.out.println("Auto je registovan");
+		}
+		else if (a.registracijaMetoda(8) == false) {
+			System.out.println("Registracije je istekla");
+		}
+		System.out.println("Cena registracije je: " + a.cenaRegistracijeMetoda());
+		
+		a.dodajGas();
+		System.out.println("Nova brzina je " + a.brzina);
+		
+		a.smanjiGas();
+		System.out.println("Nova brzina je " + a.brzina);
+		
+		double trenutnaPotrosnja = a.potrosnjaMetoda();
+		System.out.println("Trenutna potrosnja je " + trenutnaPotrosnja);
+		
+		a.stampajTablu();
+		
 	}
 
 }
