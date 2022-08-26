@@ -66,16 +66,16 @@ public class ElektricniSporet {
 		}
 
 		if (this.RinglaGoreLevo.radi() == true) {
-			brojUpaljenih = brojUpaljenih + 1;
+			brojUpaljenih++;
 		}
 		if (this.RinglaGoreDesno.radi() == true) {
-			brojUpaljenih = brojUpaljenih + 1;
+			brojUpaljenih++;
 		}
 		if (this.RinglaDoleLevo.radi() == true) {
-			brojUpaljenih = brojUpaljenih + 1;
+			brojUpaljenih++;
 		}
 		if (this.RinglaDoleDesno.radi() == true) {
-			brojUpaljenih = brojUpaljenih + 1;
+			brojUpaljenih++;
 		}
 
 		if (brojUpaljenih > maxRingli) {
