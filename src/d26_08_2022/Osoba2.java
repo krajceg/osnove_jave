@@ -1,16 +1,16 @@
 package d26_08_2022;
 
-public class Osoba {
+public class Osoba2 {
 	
 	protected String punoIme;
 	protected String jmbg;
 	protected int godRodjenja;
-	
-//	public Osoba() {
-//		
-//	}
-	
-	public Osoba(String punoIme, String jmbg, int godRodjenja) {
+
+	public Osoba2() {
+		super();
+	}
+
+	public Osoba2(String punoIme, String jmbg, int godRodjenja) {
 		super();
 		this.punoIme = punoIme;
 		this.jmbg = jmbg;
@@ -42,9 +42,8 @@ public class Osoba {
 	}
 	
 	public void stampaj() {
-		System.out.println("Ime i prezime: " + this.punoIme);
+		System.out.println("Ima i prezime: " + this.punoIme);
 		System.out.println("JMBG: " + this.jmbg);
 		System.out.println("Godina rodjenja: " + this.godRodjenja);
 	}
-	
 }
