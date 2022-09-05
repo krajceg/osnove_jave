@@ -1,6 +1,6 @@
 package p26_08_2022;
 
-public class Vozilo {
+public abstract class Vozilo {
 
 	protected String registracija;
 	protected String marka;
