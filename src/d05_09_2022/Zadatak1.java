@@ -10,11 +10,9 @@ public class Zadatak1 {
 		Sektor proizvodnja = new Sektor("proizvodnja", 60000);
 		Sektor trgovina = new Sektor("trgovina", 100000);
 		
-		
 		sveta.zaposliUSektor(proizvodnja);
 		sveta.zaposliUSektor(trgovina);
 		pera.zaposliUSektor(trgovina);
-		
 		
 		System.out.println("Radnik " + sveta.punoIme);
 		System.out.println("Sektor " + sveta.nizSektora.get(0).getNazivSektora());
