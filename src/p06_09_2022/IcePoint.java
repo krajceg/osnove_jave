@@ -39,6 +39,7 @@ public class IcePoint extends Proizvod {
 
 	@Override
 	public void stampaj() {
+		System.out.println("Sladoled ukupna cena: " + ukupnuRacunajCenu());
 		System.out.println("Tip sladoleda: " + this.tipSladoleda);
 		System.out.print("Velicina sladoleda: ");
 		if (velikiSladoled == true) {
@@ -50,7 +51,6 @@ public class IcePoint extends Proizvod {
 		for (int i = 0; i < nizSastojka.size(); i++) {
 			nizSastojka.get(i).stampaj();
 		}
-		System.out.println("Ukupna cena: " + ukupnuRacunajCenu());
 		System.out.println();
 	}
 
