@@ -126,7 +126,7 @@ public class Zadatak5 {
 		
 //		tabela1.stampaj();
 //		tabela1.printHTML();
-//		tabela1.filter("Jovanovic");
+		tabela1.filter("Jovanovic");
 		tabela1.stampaj(4);
 		tabela1.stampaPaginator();
 		
